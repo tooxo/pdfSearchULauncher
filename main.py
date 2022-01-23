@@ -74,7 +74,7 @@ def activate_pdf(result: Result, query: str):
             return
 
     subprocess.check_output(
-        ["setpid", "flatpak", "run", "org.gnome.Evince", "-p",
+        ["setsid", "flatpak", "run", "org.gnome.Evince", "-p",
          result.page_number, "-l", query, result.filename]
     )
 
