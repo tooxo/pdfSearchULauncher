@@ -20,9 +20,12 @@ def parse(s: str):
 
 
 def search(path: str, term: str) -> List[Result]:
-    output = subprocess.check_output(
-        ["pdfgrep", "-r", "-i", "-n", term, path]
-    ).decode("utf-8")
+    try:
+        output = subprocess.check_output(
+            ["pdfgrep", "-r", "-i", "-n", term, path]
+        ).decode("utf-8")
+    except subprocess.CalledProcessError:
+        return []
     lns = output.split("\n")
     rs = list(
         map(
@@ -64,11 +67,4 @@ def activate_pdf(result: Result, query: str):
     )
 
 
-activate_pdf(
-    Result(
-        filename="/home/till/Uni/WISE 21-22/Altklausuren/gbs/exam-2020.pdf",
-        page_number="17",
-        match="Multiple Choice"
-    ),
-    "multiple choice"
-)
+search("/home/till/Uni", "9832989823")

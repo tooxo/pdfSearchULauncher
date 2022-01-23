@@ -1,6 +1,6 @@
 {
   "required_api_version": "*",
-  "name": "Chrome tabs",
+  "name": "Pdf Search Evince",
   "description": "Extension Description",
   "developer_name": "Till Schulte",
   "icon": "images/icon.png",

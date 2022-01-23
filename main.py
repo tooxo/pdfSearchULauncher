@@ -38,9 +38,12 @@ def parse(s: str):
 
 
 def search(path: str, term: str) -> List[Result]:
-    output = subprocess.check_output(
-        ["pdfgrep", "-r", "-i", "-n", term, path]
-    ).decode("utf-8")
+    try:
+        output = subprocess.check_output(
+            ["pdfgrep", "-r", "-i", "-n", term, path]
+        ).decode("utf-8")
+    except subprocess.CalledProcessError:
+        return []
     lns = output.split("\n")
     rs = list(
         map(
