@@ -56,9 +56,12 @@ def search(path: str, term: str) -> List[Result]:
 
 def activate_pdf(result: Result, query: str):
     # search all windows
-    by_class = subprocess.check_output(
-        ["xdotool", "search", "--onlyvisible", "--class", "evince"]
-    ).decode("utf-8").strip().split("\n")
+    try:
+        by_class = subprocess.check_output(
+            ["xdotool", "search", "--onlyvisible", "--class", "evince"]
+        ).decode("utf-8").strip().split("\n")
+    except subprocess.CalledProcessError:
+        by_class = []
 
     # activate if already there
     for c in by_class:
