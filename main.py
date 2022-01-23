@@ -24,7 +24,7 @@ def http_request(page: str):
 @dataclasses.dataclass
 class Result:
     filename: str
-    page_number: int
+    page_number: str
     match: str
 
 
@@ -32,7 +32,7 @@ def parse(s: str):
     f = s.split(":")
     return Result(
         filename=f[0].strip(),
-        page_number=int(f[1]),
+        page_number=f[1],
         match=f[2].strip()
     )
 
