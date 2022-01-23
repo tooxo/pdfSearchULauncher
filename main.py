@@ -111,7 +111,7 @@ class KeywordQueryEventListener(EventListener):
                     ExtensionResultItem(
                         icon='images/icon.png',
                         name=i.match,
-                        description=i.filename,
+                        description=i.filename + ":P" + i.page_number,
                         on_enter=ExtensionCustomAction(
                             (i, event.get_argument()),
                             keep_app_open=False
