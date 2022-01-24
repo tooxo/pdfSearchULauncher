@@ -108,7 +108,7 @@ class KeywordQueryEventListener(EventListener):
             items = []
             pdfs = search(path, event.get_argument())
 
-            pdfs = list(pdfs)[:5]
+            pdfs = list(pdfs)[:10]
 
             for i in pdfs:
                 items.append(
