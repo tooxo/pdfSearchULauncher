@@ -5,7 +5,7 @@
   "developer_name": "Till Schulte",
   "icon": "images/icon.png",
   "options": {
-    "query_debounce": 1
+    "query_debounce": 0.5
   },
   "preferences": [
     {
