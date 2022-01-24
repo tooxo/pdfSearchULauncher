@@ -40,7 +40,7 @@ def parse(s: str):
 def search(path: str, term: str) -> List[Result]:
     try:
         output = subprocess.check_output(
-            ["pdfgrep", "-r", "-i", "-n", term, path],
+            ["pdfgrep", "-r", "-i", "-n", term, path, "--cache"],
             timeout=5
         ).decode("utf-8")
     except subprocess.CalledProcessError:
