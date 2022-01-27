@@ -74,7 +74,7 @@ def activate_pdf(result: Result, query: str):
         ).decode("utf-8").strip()
 
         file_name = result.filename.split("/").pop()
-        if name == file_name:
+        if name.startswith(file_name):
             subprocess.check_output(
                 ["xdotool", "windowactivate", c]
             )
