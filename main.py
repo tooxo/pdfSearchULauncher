@@ -124,13 +124,13 @@ class KeywordQueryEventListener(EventListener):
                 )
 
             return RenderResultListAction(items)
-        except:
+        except Exception as e:
             return RenderResultListAction(
                 [
                     ExtensionResultItem(
                         icon='images/icon.png',
                         name="error searching pdfs",
-                        description="",
+                        description=e,
                         on_enter=HideWindowAction()
                     )
                 ]
