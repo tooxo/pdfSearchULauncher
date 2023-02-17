@@ -110,6 +110,19 @@ class KeywordQueryEventListener(EventListener):
 
             pdfs = list(pdfs)[:10]
 
+            if len(pdfs) == 0:
+                return RenderResultListAction(
+                    [
+                        ExtensionResultItem(
+                            icon='images/icon.png',
+                            name="no results found",
+                            description="",
+                            on_enter=HideWindowAction()
+                        )
+                    ]
+
+                )
+
             for i in pdfs:
                 items.append(
                     ExtensionResultItem(
