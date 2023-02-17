@@ -124,7 +124,7 @@ class KeywordQueryEventListener(EventListener):
                 )
 
             return RenderResultListAction(items)
-        except Exception as e:
+        except BaseException as e:
             return RenderResultListAction(
                 [
                     ExtensionResultItem(
