@@ -39,6 +39,7 @@ def parse(s: str):
 
 def search(path: str, term: str) -> List[Result]:
     try:
+        print("searching using: " + " ".join(["pdfgrep", "-r", "-i", "-n", term, path, "--cache"]))
         output = subprocess.check_output(
             ["pdfgrep", "-r", "-i", "-n", term, path, "--cache"],
             timeout=5
