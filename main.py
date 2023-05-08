@@ -38,6 +38,8 @@ def parse(s: str):
 
 
 def search(path: str, term: str) -> List[Result]:
+    if term is None:
+        return []
     try:
         coom = ["timeout", "5s", "pdfgrep", "-r", "-i", "-n", term, path, "--cache", "-m", "10"]
         print("searching using: " + " ".join(coom))
