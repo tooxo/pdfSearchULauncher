@@ -47,8 +47,8 @@ def search(path: str, term: str) -> List[Result]:
             coom,
             timeout=20
         ).decode("utf-8")
-    except subprocess.CalledProcessError:
-        return []
+    except subprocess.CalledProcessError e:
+        output = e.output
     lns = output.split("\n")
     rs = list(
         map(
