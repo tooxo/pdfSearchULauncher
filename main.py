@@ -39,9 +39,10 @@ def parse(s: str):
 
 def search(path: str, term: str) -> List[Result]:
     try:
-        print("searching using: " + " ".join(["pdfgrep", "-r", "-i", "-n", term, path, "--cache"]))
+        coom = ["pdfgrep", "-r", "-i", "-n", term, path, "--cache", "-m", "10"]
+        print("searching using: " + " ".join(coom))
         output = subprocess.check_output(
-            ["pdfgrep", "-r", "-i", "-n", term, path, "--cache"],
+            coom,
             timeout=5
         ).decode("utf-8")
     except subprocess.CalledProcessError:
