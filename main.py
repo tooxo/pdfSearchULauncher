@@ -39,11 +39,11 @@ def parse(s: str):
 
 def search(path: str, term: str) -> List[Result]:
     try:
-        coom = ["pdfgrep", "-r", "-i", "-n", term, path, "--cache", "-m", "10"]
+        coom = ["timeout", "5s", "pdfgrep", "-r", "-i", "-n", term, path, "--cache", "-m", "10"]
         print("searching using: " + " ".join(coom))
         output = subprocess.check_output(
             coom,
-            timeout=5
+            timeout=20
         ).decode("utf-8")
     except subprocess.CalledProcessError:
         return []
