@@ -48,7 +48,7 @@ def search(path: str, term: str) -> List[Result]:
             timeout=20
         ).decode("utf-8")
     except subprocess.CalledProcessError as e:
-        output = e.output
+        output = e.output.decode("utf-8")
     lns = output.split("\n")
     rs = list(
         map(
